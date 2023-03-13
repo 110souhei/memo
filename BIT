@@ -1,0 +1,21 @@
+ll BIT[200005]={};
+int n;
+ 
+ll sum(int i){
+    ll s = 0;
+    while( i > 0){
+        s += BIT[i];
+        i -= i & -i;
+    }
+ 
+    return s;
+}
+ 
+void add(int i,int x){
+    
+    while(i <= n){
+        BIT[i] += x;
+        i += i & -i;
+        
+    }
+}
