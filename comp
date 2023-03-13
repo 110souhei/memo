@@ -1,8 +1,8 @@
  
-int comp(vector<int> &a){
+ll comp(vector<int> &a){
 	map<int,int> mem;
 	for(auto p: a) mem[p] = 0;
-	int sz = 0;
+	ll sz = 0;
 	for(auto &p: mem) p.second =  sz++;
 	for(auto &p : a) p = mem[p];
 	return sz;
