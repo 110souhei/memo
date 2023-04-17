@@ -19,4 +19,4 @@ public:
 		if (root(u) == root(v)) return true;
 		return false;
 	}
-};
+
