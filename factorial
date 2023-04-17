@@ -1,0 +1,32 @@
+
+
+ll pows(ll x, ll y){
+	cout<<"pow"<<endl;
+	ll c = 1;
+	for(ll i = 0 ; i <62; i++){
+		if( y &(1ull<<i) ) {
+			c*= x;
+			c%=mod;
+		}
+		x=(x*x)%mod;
+	}
+	return c;
+}
+
+vector<ll> f(500005);
+vector<ll> f_i(500005);
+
+void init(ll t){
+	f[0] = 1;
+	rep(i,t) f[i+1] = (f[i]*(i+1))%mod;
+
+	ll c = f[t];
+
+	ll x = pows(c,mod-2);
+
+	cout<<x<<endl;
+	f_i[t] = x;
+	for(int i= t; i>0; i--){
+		f_i[i-1] = (f_i[i]*i)%mod;
+	}
+}

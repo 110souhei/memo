@@ -1,0 +1,12 @@
+
+ll pows(ll x, ll y){
+	ll c = 1;
+	for(ll i = 0 ; i <62; i++){
+		if( y &(1ull<<i) ) {
+			c*= x;
+			c%=mod;
+		}
+		x=(x*x)%mod;
+	}
+	return c;
+}
