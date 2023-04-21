@@ -1,0 +1,40 @@
+
+struct ShortestPath {
+	vector<ll> ans;
+	vector<vector<P>> g;
+	void init(int n){
+		ans.resize(n,INF);
+		g.resize(n);
+	}
+
+
+	void dijkstra(int s){
+
+		priority_queue<P,vector<P>,greater<P>> que;
+		que.push({0,s});
+		ans[s] = 0;
+		while(que.size()){
+			int now = que.top().second;
+			ll cost = que.top().first;
+			que.pop();
+			if(ans[now] < cost) continue;
+
+
+			for(P x : g[now]){
+				int to = x.first;
+				ll fare = x.second;
+				if(ans[to] > cost+fare){
+					que.push({cost+fare,to});
+					ans[to] = cost+fare;
+				}
+			}
+		}
+	}
+
+
+
+
+	
+};
+
+
