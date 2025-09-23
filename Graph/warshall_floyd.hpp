@@ -1,0 +1,13 @@
+
+template<typename Matrix, typename T>
+void warshall_floyd(Matrix& g, T MAX_T){
+    int n = g.size();
+    for(int k = 0; k<n; k++){
+        for(int i = 0; i<n; i++){
+            for(int j = 0; j<n; j++){
+                if(g[i][k] == MAX_T || g[k][j] == MAX_T)continue;
+                g[i][j] = min(g[i][j],g[i][k] + g[k][j]);
+            }
+        }
+    }
+}
